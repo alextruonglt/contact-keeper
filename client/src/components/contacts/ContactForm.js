@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import contactContext from '../../context/contact/ContactContext';
-import ContactContext from '../../context/contact/ContactContext';
-
+import ContactContext from '../../context/contact/contactContext';
 
 export const ContactForm = () => {
     const contactContext = useContext(ContactContext)
@@ -61,7 +59,13 @@ export const ContactForm = () => {
             <input type="email" placeholder='Email' name='email' value={email} onChange={onChange} />
             <input type="text" placeholder='Phone' name='phone' value={phone} onChange={onChange} />
             <h5>Contact Type</h5>
-            <input type="radio" name="type" value="personal" checked={type === "personal"} /> Personal{" "}
+            <input
+                type="radio"
+                name="type"
+                value="personal"
+                checked={type === "personal"}
+                onChange={onChange}
+            />{" "}
             <input type="radio" name="type" value="professional" checked={type === "professional"} onChange={onChange} /> Professional{" "}
             <div>
                 <input type="submit" value={current ? "Update Contact" : "Add Contact"} className='btn btn-primary btn-block' />
