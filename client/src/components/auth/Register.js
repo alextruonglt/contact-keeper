@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import AlertContext from "../../context/alert/alertContext"
 import AuthContext from "../../context/auth/authContext"
+import { useNavigate } from 'react-router-dom'
 
 export const Register = props => {
     const alertContext = useContext(AlertContext)
@@ -9,10 +10,12 @@ export const Register = props => {
     const { setAlert } = alertContext
     const { register, error, clearErrors, isAuthenticated } = authContext;
 
+    const navigate = useNavigate()
+
     useEffect(() => {
 
         if (isAuthenticated) {
-            props.history.push("/")
+            navigate("/")
         }
 
         if (error === "User already exists") {
